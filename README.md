@@ -14,8 +14,8 @@ USAGE:
    dot http match [command options] [URI] [expect]
 
 OPTIONS:
-   --times value     how many requests to make (default: 1)
+   --times value     how many requests to make (default: 10)
    --interval value  interval for each request (default: 3)
-   --timeout value   stop match if timeout (default: 30)
+   --timeout value   stop match if timeout in second (default: 30)
    --help, -h        show help (default: false)
 ```

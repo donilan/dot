@@ -46,7 +46,7 @@ func HttpMatch(ctx *cli.Context) error {
 				}
 				bodyString := string(bodyBytes)
 				log.Debugln("body", bodyString)
-				matched, _ := regexp.MatchString(bodyString, expect)
+				matched, _ := regexp.MatchString(expect, bodyString)
 				log.Debugln("matched", matched)
 				if matched {
 					timeoutChan <- true
@@ -76,9 +76,9 @@ func main() {
 		Usage:     "match expect content for response body",
 		ArgsUsage: "[URI] [expect]",
 		Flags: []cli.Flag{
-			&cli.IntFlag{Name: "times", Value: 1, Usage: "how many requests to make"},
+			&cli.IntFlag{Name: "times", Value: 10, Usage: "how many requests to make"},
 			&cli.IntFlag{Name: "interval", Value: 3, Usage: "interval for each request"},
-			&cli.IntFlag{Name: "timeout", Value: 30, Usage: "stop match if timeout"},
+			&cli.IntFlag{Name: "timeout", Value: 30, Usage: "stop match if timeout in second"},
 		},
 		Action: HttpMatch,
 	}
